@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  tickflow:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - JWT_SECRET=your-secret-key-here
+      - PORT=3000
+    volumes:
+      - tickflow-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  tickflow-data:
